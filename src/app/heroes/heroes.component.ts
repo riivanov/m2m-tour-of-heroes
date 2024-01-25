@@ -34,7 +34,6 @@ export class HeroesComponent implements OnInit {
   }
 
   add(hero: Hero): void {
-    // console.log(hero);
     const name = hero.name.trim();
     if (!name) {
       return;

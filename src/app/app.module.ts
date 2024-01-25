@@ -11,6 +11,7 @@ import { InMemoryDataService } from "./in-memory-data.service";
 import { AppRoutingModule } from "./app-routing.module";
 
 import { ButtonModule } from "primeng/button";
+import { TableModule } from "primeng/table";
 import { AppComponent } from "./app.component";
 import { DashboardComponent } from "./dashboard/dashboard.component";
 import { HeroDetailComponent } from "./hero-detail/hero-detail.component";
@@ -26,6 +27,7 @@ import { MessagesComponent } from "./messages/messages.component";
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
+    TableModule,
 
     // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
     // and returns simulated server responses.
