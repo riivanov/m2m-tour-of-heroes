@@ -25,11 +25,10 @@
   </button>
 </div>
 
-<!-- <ul class="heroes"> -->
 <p-table [value]="heroes">
   <ng-template pTemplate="header">
     <tr>
-      <!-- <th>Delete</th> -->
+      <th pSortableColumn="id">Id<p-sortIcon field="id"></p-sortIcon></th>
       <th pSortableColumn="name">
         Name <p-sortIcon field="name"></p-sortIcon>
       </th>
@@ -44,7 +43,9 @@
   </ng-template>
   <ng-template pTemplate="body" let-hero>
     <tr>
-      <!-- <td>
+      <td>
+        {{ hero.id }}
+
         <button
           type="button"
           class="delete"
@@ -53,7 +54,7 @@
         >
           x
         </button>
-      </td> -->
+      </td>
       <td>
         <a routerLink="/detail/{{ hero.id }}">{{ hero.name }}</a>
       </td>
@@ -63,17 +64,3 @@
     </tr>
   </ng-template>
 </p-table>
-<!-- <li *ngFor="let hero of heroes">
-    <a routerLink="/detail/{{ hero.id }}">
-      <span class="badge">{{ hero.id }}</span> {{ hero.name }}
-    </a>
-    <button
-      type="button"
-      class="delete"
-      title="delete hero"
-      (click)="delete(hero)"
-    >
-      x
-    </button> -->
-<!-- </li> -->
-<!-- </ul> -->
