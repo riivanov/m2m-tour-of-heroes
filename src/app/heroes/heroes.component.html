@@ -1,21 +1,42 @@
 <h2>My Heroes</h2>
 
 <div>
-  <label for="new-hero">Hero name: </label>
-  <input id="new-hero" #heroName />
+  <form [formGroup]="form">
+    <label for="hero-name">Hero name: </label>
+    <input formControlName="name" id="hero-name" #heroName />
+
+    <label for="hero-strength">Strength: </label>
+    <input formControlName="strength" id="hero-strength" #heroStrength />
+
+    <label for="hero-speed">Speed: </label>
+    <input formControlName="speed" id="hero-speed" #heroSpeed />
+
+    <label for="hero-age">Age: </label>
+    <input formControlName="age" id="hero-age" type="number" #heroAge />
+  </form>
 
   <!-- (click) passes input value to add() and then clears the input -->
-  <button type="button" class="add-button" (click)="add(heroName.value); heroName.value=''">
+  <button
+    type="button"
+    class="add-button"
+    (click)="add(form.value); heroName.value = ''"
+  >
     Add hero
   </button>
 </div>
 
 <ul class="heroes">
   <li *ngFor="let hero of heroes">
-    <a routerLink="/detail/{{hero.id}}">
-      <span class="badge">{{hero.id}}</span> {{hero.name}}
+    <a routerLink="/detail/{{ hero.id }}">
+      <span class="badge">{{ hero.id }}</span> {{ hero.name }}
     </a>
-    <button type="button" class="delete" title="delete hero"
-      (click)="delete(hero)">x</button>
+    <button
+      type="button"
+      class="delete"
+      title="delete hero"
+      (click)="delete(hero)"
+    >
+      x
+    </button>
   </li>
 </ul>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 
+import { FormBuilder, FormGroup } from "@angular/forms";
 import { Hero } from "../hero";
 import { HeroService } from "../hero.service";
 
@@ -10,8 +11,19 @@ import { HeroService } from "../hero.service";
 })
 export class HeroesComponent implements OnInit {
   heroes: Hero[] = [];
+  form: FormGroup;
 
-  constructor(private heroService: HeroService) {}
+  constructor(
+    private heroService: HeroService,
+    private fb: FormBuilder
+  ) {
+    this.form = this.fb.group({
+      name: [""],
+      strength: [""],
+      speed: [""],
+      age: [""],
+    });
+  }
 
   ngOnInit(): void {
     this.getHeroes();
@@ -21,8 +33,9 @@ export class HeroesComponent implements OnInit {
     this.heroService.getHeroes().subscribe((heroes) => (this.heroes = heroes));
   }
 
-  add(name: string): void {
-    name = name.trim();
+  add(hero: Hero): void {
+    // console.log(hero);
+    const name = hero.name.trim();
     if (!name) {
       return;
     }
