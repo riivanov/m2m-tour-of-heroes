@@ -1,4 +1,4 @@
-# To run the API
+# To run
 
 This assumes you have NPM and Node installed.
 
